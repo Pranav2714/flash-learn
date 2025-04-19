@@ -30,14 +30,14 @@ const HeroSection = () => {
         <div className="mt-6 flex justify-center gap-4 flex-wrap">
           <Button
             onClick={() => router.push("/generate")}
-            className="bg-rose-700 hover:bg-rose-800 text-white"
+            className="bg-rose-700 hover:bg-rose-800 text-white cursor-pointer"
           >
             Try AI Generate 🪄
           </Button>
           <Button
             variant="outline"
             onClick={() => router.push("/manual/flashcards")}
-            className="border-rose-700 text-rose-700 hover:bg-rose-100"
+            className="border-rose-700 text-rose-700 hover:bg-rose-100 cursor-pointer"
           >
             Create Flashcards Manually
           </Button>
