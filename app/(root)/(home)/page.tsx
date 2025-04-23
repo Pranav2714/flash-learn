@@ -3,7 +3,8 @@
 import { useUser } from "@clerk/nextjs";
 import HeroSection from "@/components/HeroSection";
 import Features from "@/components/Features";
-// import FlashcardDisplay from "@/components/FlashcardDisplay";
+import FlashcardDisplay from "@/components/FlashcardDisplay";
+
 // import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -27,7 +28,7 @@ export default function Home() {
               </p>
             </div>
 
-            {/* <FlashcardDisplay user={user} /> */}
+            <FlashcardDisplay user={user} />
           </section>
         )}
       </main>

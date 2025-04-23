@@ -44,10 +44,10 @@ export default function FlashcardDisplay({ user }: FlashcardDisplayProps) {
       {flashcards.map((flashcard, index) => (
         <Card
           key={index}
-          className="cursor-pointer transition-shadow hover:shadow-xl max-w-xs mx-auto"
+          className="cursor-pointer transition-shadow hover:shadow-xl w-full max-w-xs mx-auto bg-white"
           onClick={() => handleCardClick(flashcard.name)}
         >
-          <CardContent className="h-[100px] flex items-center justify-center bg-muted rounded-xl">
+          <CardContent className="h-[100px] flex items-center justify-center  rounded-xl bg-white">
             <CardTitle className="text-center text-lg font-semibold">
               {flashcard.name}
             </CardTitle>

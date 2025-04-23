@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-// import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/ui/separator";
 import FlashcardDisplay from "@/components/FlashcardDisplay";
 
 export default function Flashcards() {
@@ -13,8 +13,8 @@ export default function Flashcards() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-8 px-4">
-      <Card className="mb-6 bg-dark-3 text-white">
+    <div className="max-w-4xl mx-auto mt-6 px-4">
+      <Card className="mb-6 bg-dark-3 text-white border-none">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">
             Your Created Flashcard Sets
@@ -22,7 +22,7 @@ export default function Flashcards() {
         </CardHeader>
       </Card>
 
-      {/* <Separator className="mb-6" /> */}
+      <Separator className="mb-6" />
 
       {/* Flashcard display section */}
       <FlashcardDisplay user={user} />
