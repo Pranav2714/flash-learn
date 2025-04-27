@@ -66,7 +66,7 @@ const GenerateAiCard = () => {
     const flashcollRef = await getDoc(userDocref);
     if (flashcollRef.exists()) {
       const collections = flashcollRef.data().flashcards || [];
-      if (collections.find((f) => f.name === name)) {
+      if (collections.find((f: any) => f.name === name)) {
         toast.warning(
           "You already have a collection with this name. Please choose a different name."
         );
