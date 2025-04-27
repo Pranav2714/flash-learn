@@ -16,6 +16,7 @@ import { db } from "@/firebase";
 import { collection, doc, writeBatch, getDoc } from "firebase/firestore";
 import { toast } from "sonner";
 
+
 interface Flashcard {
   front: string;
   back: string;
@@ -119,14 +120,14 @@ const ManualFlashCards = () => {
         <div className="flex flex-col gap-3 mt-6">
           <Button
             onClick={addFlashcard}
-            className="w-full bg-red-2 hover:bg-red-3"
+            className="w-full bg-red-2 hover:bg-red-3 cursor-pointer"
           >
             Add Flashcard
           </Button>
           <Button
             variant="secondary"
             onClick={() => setOpen(true)}
-            className="w-full"
+            className="w-full cursor-pointer"
           >
             Save Flashcards
           </Button>
@@ -134,7 +135,7 @@ const ManualFlashCards = () => {
       </div>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px] bg-dark-1 text-white border-none">
+        <DialogContent className="sm:max-w-[425px] bg-dark-2 text-white border-none">
           <DialogHeader>
             <DialogTitle>Save Flashcard Set</DialogTitle>
           </DialogHeader>
@@ -142,7 +143,7 @@ const ManualFlashCards = () => {
             placeholder="Enter flashcard set name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="my-4  bg-gray-300 text-black"
+            className="my-4  bg-gray-100 text-black"
           />
           <DialogFooter>
             <Button

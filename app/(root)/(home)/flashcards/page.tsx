@@ -13,7 +13,7 @@ export default function Flashcards() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto mt-6 px-4">
+    <div className="max-w-4xl mx-auto px-4">
       <Card className="mb-6 bg-dark-3 text-white border-none">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">
@@ -21,8 +21,6 @@ export default function Flashcards() {
           </CardTitle>
         </CardHeader>
       </Card>
-
-      <Separator className="mb-6" />
 
       {/* Flashcard display section */}
       <FlashcardDisplay user={user} />

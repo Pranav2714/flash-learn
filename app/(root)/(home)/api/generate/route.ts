@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Groq } from "groq-sdk";
 
-const systemPrompt = `You are a flashcard creator. You take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards.The front should have an interesting question related to that topic. Dont repeat similar questions. Both front and back should be one sentence long. You should return in the following JSON format:
+const systemPrompt = `You are a flashcard creator. You take in text and create multiple flashcards from it. Make sure to create exactly 10 flashcards.The front should have an interesting question related to that topic. Dont repeat similar questions. Both front and back should be one sentence long . You should return in the following JSON format:
 {
   "flashcards":[
     {
@@ -17,7 +17,7 @@ export async function POST(req: Request) {
     const data = await req.text();
 
     const completion = await groq.chat.completions.create({
-      model: "llama3-8b-8192",
+      model: "llama-3.3-70b-versatile",
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: data },
@@ -26,6 +26,7 @@ export async function POST(req: Request) {
     });
 
     const flashcards = JSON.parse(completion.choices[0].message.content!);
+    // console.log(flashcards);
     return NextResponse.json(flashcards.flashcards);
   } catch (error) {
     console.error("Error creating flashcards:", error);
@@ -34,4 +35,5 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+
 }
