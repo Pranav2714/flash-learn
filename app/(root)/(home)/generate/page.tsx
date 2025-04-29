@@ -28,6 +28,9 @@ interface FlashcardData {
   front: string;
   back: string;
 }
+interface Collection {
+  name: string;
+}
 
 const GenerateAiCard = () => {
   const router = useRouter();
@@ -38,7 +41,7 @@ const GenerateAiCard = () => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
-  const { isLoaded, isSignedIn, user } = useUser();
+  const { user } = useUser();
   const [flashcards, setFlashcards] = useState<FlashcardData[]>([]);
   const handleSubmit = async () => {
     fetch("/api/generate", {
@@ -62,11 +65,11 @@ const GenerateAiCard = () => {
       return;
     }
     const batch = writeBatch(db);
-    const userDocref = doc(collection(db, "users"), user?.id!);
+    const userDocref = doc(collection(db, "users"), user?.id);
     const flashcollRef = await getDoc(userDocref);
     if (flashcollRef.exists()) {
       const collections = flashcollRef.data().flashcards || [];
-      if (collections.find((f: any) => f.name === name)) {
+      if (collections.find((f: Collection) => f.name === name)) {
         toast.warning(
           "You already have a collection with this name. Please choose a different name."
         );
@@ -130,7 +133,7 @@ const GenerateAiCard = () => {
           <h2 className="text-xl md:text-2xl font-bold italic text-white mb-6">
             Here are some flashcards we generated for you.
             <br />
-            Let's see how well you know them!
+            Let&apos;s see how well you know them!
           </h2>
           {/* **************************--------------- */}
           <div className="flex flex-col items-center justify-center p-6">

@@ -16,10 +16,12 @@ import { db } from "@/firebase";
 import { collection, doc, writeBatch, getDoc } from "firebase/firestore";
 import { toast } from "sonner";
 
-
 interface Flashcard {
   front: string;
   back: string;
+}
+interface Collection {
+  name: string;
 }
 
 const ManualFlashCards = () => {
@@ -59,7 +61,7 @@ const ManualFlashCards = () => {
 
     if (docSnap.exists()) {
       const collections = docSnap.data().flashcards || [];
-      if (collections.find((c: any) => c.name === name)) {
+      if (collections.find((c: Collection) => c.name === name)) {
         toast.error("You already have a collection with this name.");
         return;
       }

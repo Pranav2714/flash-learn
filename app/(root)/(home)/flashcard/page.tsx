@@ -53,7 +53,9 @@ export default function Flashcard() {
   return (
     <div className="max-w-4xl mx-auto py-3">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-bold text-white">Your Flashcard Sets</h1>
+        <h1 className="text-3xl font-bold text-white">
+          Your Flashcards of set {`${search}`}{" "}
+        </h1>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

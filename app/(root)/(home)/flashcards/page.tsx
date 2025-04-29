@@ -2,7 +2,7 @@
 
 import { useUser } from "@clerk/nextjs";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+// import { Separator } from "@/components/ui/separator";
 import FlashcardDisplay from "@/components/FlashcardDisplay";
 
 export default function Flashcards() {
